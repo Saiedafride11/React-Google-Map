@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+// import Map from './components/Map/Map';
+import Direction from './components/Map/Direction';
 
 function App() {
+  const [origin, setOrigin] = useState('')
+  const [destination, setDestination] = useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{textAlign: 'center'}}>
+        {/* <Map></Map> */}
+        <input type="text" placeholder="Starting From" onBlur={e => setOrigin(e.target.value)}/>
+        <input type="text" placeholder="Going To" onBlur={e => setDestination(e.target.value)}/>
+        <Direction origin={origin} destination={destination}></Direction>
     </div>
   );
 }
 
 export default App;
+
+// get google map api key
+// react google maps
+// find my longitude and latitude
